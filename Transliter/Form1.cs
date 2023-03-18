@@ -27,7 +27,6 @@ namespace Transliter
                 label3.Text = "Помилка при читанні файлу, перевірте його наявність та перезапустіть программу";
             }
             
-            
 
         }
 
@@ -41,13 +40,30 @@ namespace Transliter
             string result = "";
             for(int i = 0; i < japan_text.Length; i++)
             {
-                for(int j =0; j< rule.length; j++)
+                for(int j = rule.length-1; j>=0; j--)
                 {
-                    if (rule[j].japan.Contains(japan_text[i]))
+                    string[] gg = rule[j].japan.Replace(" ","").Trim().Split("/");
+                    
+                    for(int g=0; g< gg.Length; g++)
                     {
-                        result += rule[j].ukrain;
-                        break;
+                        string cont = "";
+                        if (i + gg[g].Trim().Length <= japan_text.Length)
+                        {
+                            for (int h = 0; h < gg[g].Trim().Length; h++)
+                            {
+                                cont += japan_text[i + h];
+                            }
+                            if (gg[g].Trim() == cont)
+                            {
+                                result += rule[j].ukrain;
+                                i += gg[g].Trim().Length - 1;
+                                break;
+                            }
+                        }
+                       
                     }
+
+                    
                 }
             }
             this.textBox2.Text = result;

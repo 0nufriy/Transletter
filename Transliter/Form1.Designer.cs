@@ -87,9 +87,8 @@
             this.label3.ForeColor = System.Drawing.Color.IndianRed;
             this.label3.Location = new System.Drawing.Point(12, 207);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(591, 20);
+            this.label3.Size = new System.Drawing.Size(0, 20);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Помилка при читанні файлу, перевірте його наявність та перезапустіть программу";
             // 
             // Form1
             // 
