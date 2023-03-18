@@ -83,12 +83,13 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.IndianRed;
             this.label3.Location = new System.Drawing.Point(12, 207);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 30);
+            this.label3.Size = new System.Drawing.Size(591, 20);
             this.label3.TabIndex = 5;
+            this.label3.Text = "Помилка при читанні файлу, перевірте його наявність та перезапустіть программу";
             // 
             // Form1
             // 
