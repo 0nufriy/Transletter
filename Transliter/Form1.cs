@@ -38,7 +38,6 @@ namespace Transliter
             }
             char[] japan_text = textBox1.Text.ToCharArray();
             string result = "";
-            int count = 0;
            
             for (int i = 0; i < japan_text.Length; i++)
             {
@@ -49,7 +48,6 @@ namespace Transliter
                     
                     for(int g=0; g< gg.Length; g++)
                     {
-                        count++;
                         gg[g] = gg[g].Trim();
                         string cont = "";
                         if (i + gg[g].Length <= japan_text.Length)
@@ -73,7 +71,6 @@ namespace Transliter
                 }
             }
             
-            label3.Text = count.ToString();
             this.textBox2.Text = result;
         }
     }
