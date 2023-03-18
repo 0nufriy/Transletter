@@ -10,15 +10,23 @@ namespace Transliter
         public Form1()
         {
             InitializeComponent();
-            ABC? rule1 = JsonConvert.DeserializeObject<ABC>(File.ReadAllText("rule.json"));
-            if (rule1 != null)
+            try
             {
-                this.rule = rule1;
+                ABC? rule1 = JsonConvert.DeserializeObject<ABC>(File.ReadAllText("rule.json"));
+                if (rule1 != null)
+                {
+                    this.rule = rule1;
+                }
+                else
+                {
+                    label3.Text = "Помилка при читанні файлу, перевірте його наявність та перезапустіть программу";
+                }
             }
-            else
+            catch
             {
                 label3.Text = "Помилка при читанні файлу, перевірте його наявність та перезапустіть программу";
             }
+            
             
 
         }
