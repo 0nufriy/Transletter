@@ -26,8 +26,8 @@ namespace Transliter
             {
                 label3.Text = "Помилка при читанні файлу, перевірте його наявність та перезапустіть программу";
             }
-            
 
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -38,25 +38,31 @@ namespace Transliter
             }
             char[] japan_text = textBox1.Text.ToCharArray();
             string result = "";
-            for(int i = 0; i < japan_text.Length; i++)
+            int count = 0;
+           
+            for (int i = 0; i < japan_text.Length; i++)
             {
-                for(int j = rule.length-1; j>=0; j--)
+                bool noComplete = true;
+                for (int j = rule.length-1; j>=0 && noComplete; j--)
                 {
                     string[] gg = rule[j].japan.Replace(" ","").Trim().Split("/");
                     
                     for(int g=0; g< gg.Length; g++)
                     {
+                        count++;
+                        gg[g] = gg[g].Trim();
                         string cont = "";
-                        if (i + gg[g].Trim().Length <= japan_text.Length)
+                        if (i + gg[g].Length <= japan_text.Length)
                         {
-                            for (int h = 0; h < gg[g].Trim().Length; h++)
+                            for (int h = 0; h < gg[g].Length; h++)
                             {
                                 cont += japan_text[i + h];
                             }
-                            if (gg[g].Trim() == cont)
+                            if (gg[g] == cont)
                             {
                                 result += rule[j].ukrain;
-                                i += gg[g].Trim().Length - 1;
+                                i += gg[g].Length - 1;
+                                noComplete = false;
                                 break;
                             }
                         }
@@ -66,6 +72,8 @@ namespace Transliter
                     
                 }
             }
+            
+            label3.Text = count.ToString();
             this.textBox2.Text = result;
         }
     }
